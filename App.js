@@ -3,9 +3,13 @@ import { StyleSheet, Text, View,Platform,StatusBar } from 'react-native';
 import {createStackNavigator,createMaterialTopTabNavigator,createBottomTabNavigator} from 'react-navigation'
 import {FontAwesome , Ionicons} from '@expo/vector-icons'
 import {Constants} from 'expo'
+
 import DeckList from './components/decklist'
 import NewDeck from './components/newdeck'
 import {purple, white} from './utils/colors'
+
+
+
 
 function UdaciStatusBar ({ backgroundColor, ...props}) {
   return (
@@ -95,7 +99,7 @@ const MainNavigator = createStackNavigator({
   Home: {
     screen: Tabs,
     navigationOptions: {
-    
+    header: null,
     }
   }
 })
@@ -105,14 +109,16 @@ export default class App extends React.Component {
 
     
     return (
+ 
+
       <View style={{flex: 1}}>
     
-        <View  / >
+        <View / >
          <UdaciStatusBar backgroundColor={purple} barStyle='light-content' />
-        
-        <Tabs />
+        <MainNavigator />
         
       </View>
+  
     );
   }
 }
