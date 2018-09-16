@@ -36,16 +36,16 @@ export default class DeckList extends Component {
       });
     }
   }
-  renderItem = ({ item }) => {
-    return (
-      <TouchableOpacity
-        onPress={() =>
-          this.props.navigation.navigate('ListDeck', { deck: item })
-        }>
-        <Deck deck={item} />
-      </TouchableOpacity>
-    );
-  };
+//   renderItem = (item) => {
+//     return (
+//       <TouchableOpacity
+//         onPress={() =>
+//           this.props.navigation.navigate('DeckView', { deck: item })
+//         }>
+//         <Deck deck={item} />
+//       </TouchableOpacity>
+//     );
+//   };
   render() {
     const { ready, decks } = this.state;
 
@@ -61,11 +61,23 @@ export default class DeckList extends Component {
     }
     const data = Object.values(decks);
 
+    
+
+      
     return (
       <View style={styles.container}>
         <FlatList
           data={data}
-         renderItem={this.renderItem}
+         renderItem={({item}) => {
+            return (
+              <TouchableOpacity
+                onPress={() =>
+                  this.props.navigation.navigate('DeckView', { deck: item })
+                }>
+                <Deck deck={item} />
+              </TouchableOpacity>
+            );
+          }}
           keyExtractor={item => item.title}
         />
       </View>

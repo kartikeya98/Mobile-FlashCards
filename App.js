@@ -3,10 +3,11 @@ import { StyleSheet, Text, View,Platform,StatusBar } from 'react-native';
 import {createStackNavigator,createMaterialTopTabNavigator,createBottomTabNavigator} from 'react-navigation'
 import {FontAwesome , Ionicons} from '@expo/vector-icons'
 import {Constants} from 'expo'
-
 import DeckList from './components/decklist'
 import NewDeck from './components/newdeck'
 import {purple, white} from './utils/colors'
+import DeckView from './components/deckview';
+import NewCard from './components/newcard'
 
 
 
@@ -101,7 +102,31 @@ const MainNavigator = createStackNavigator({
     navigationOptions: {
     header: null,
     }
-  }
+  },
+  DeckView: {
+    screen: DeckView,
+    navigationOptions: {
+      title: 'Flashcard',
+      headerTintColor: white,
+      headerStyle: {
+        backgroundColor: purple,
+        height: 60,
+        marginTop: -20
+      }
+    }
+  },
+  NewCard: {
+    screen: NewCard,
+    navigationOptions: {
+      title: 'Add Card',
+      headerTintColor: white,
+      headerStyle: {
+        backgroundColor: purple,
+        height: 60,
+        marginTop: -20
+      }
+    }
+  },
 })
 
 export default class App extends React.Component {

@@ -29,6 +29,12 @@ class NewDeck extends Component {
     title: ''
   };
 
+  toDeck = deck => {
+    this.props.navigation.navigate('DeckView', {
+      deck: deck
+    });
+  };
+
   submit = () => {
     const { title } = this.state;
     const id = title.toLowerCase();
@@ -37,6 +43,9 @@ class NewDeck extends Component {
     };
 
     addDeck(deck)
+    .then(() => {
+        return this.toDeck(deck);
+      })
  
       
 
